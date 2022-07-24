@@ -16,7 +16,9 @@ class NameChangeViewController: UIViewController {
         
         setBackgroundColor()
         
-        navigationItem.title = "님 이름 변경하기"
+        let savedname = UserDefaults.standard.string(forKey: "name")!
+        
+        navigationItem.title = "\(savedname)님 이름 변경하기"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveBtnClicked))
     }
     @objc func saveBtnClicked() {
@@ -26,6 +28,9 @@ class NameChangeViewController: UIViewController {
         let level = UserDefaults.standard.integer(forKey: "level")
         let rice = UserDefaults.standard.integer(forKey: "rice")
         let water = UserDefaults.standard.integer(forKey: "water")
+        
+        let nickname = nameTextField.text
+        UserDefaults.standard.set(nickname, forKey:"name")
     }
     
     @IBAction func nameTxtFieldChanged(_ sender: UITextField) {

@@ -47,17 +47,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="riceTextField:" destination="yoI-47-cjf" eventType="editingDidEndOnExit" id="K2f-VA-WKb"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="물주세용" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttu-TW-fdq">
                                 <rect key="frame" x="80" y="636" width="170" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="waterTextField:" destination="yoI-47-cjf" eventType="editingDidEndOnExit" id="ewW-Bz-dt5"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85o-ym-Lha">
                                 <rect key="frame" x="93" y="96" width="228" height="110"/>
@@ -120,10 +114,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="characterImage" destination="4kd-Rf-i9H" id="dPz-j6-EOT"/>
                         <outlet property="levelInfoUILabel" destination="iiS-bM-yYq" id="Xkx-CX-sR8"/>
                         <outlet property="nameUILabel" destination="ETG-0i-JOl" id="Hzw-eR-l4K"/>
                         <outlet property="riceBtnUI" destination="jga-Wh-Vxc" id="u4a-oT-eKU"/>
+                        <outlet property="riceTextField" destination="Z0T-Gx-DYO" id="CEv-GI-KVb"/>
                         <outlet property="waterBtnUI" destination="QCJ-Cf-yxY" id="nT0-IS-nLT"/>
+                        <outlet property="waterTextField" destination="ttu-TW-fdq" id="JFi-CW-bxp"/>
                         <outlet property="wordsUILabel" destination="85o-ym-Lha" id="lE4-IC-OLB"/>
                     </connections>
                 </viewController>

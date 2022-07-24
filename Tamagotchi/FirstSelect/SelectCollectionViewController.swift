@@ -11,14 +11,16 @@ private let reuseIdentifier = "Cell"
 
 class SelectCollectionViewController: UICollectionViewController {
     
-    var imageSetting: [UIImage] = []
-    var characterSetting: [String] = []
+    var characterList = CharacterInfo() //인스턴스 생성
+    
+//    var imageSetting: [UIImage] = []
+//    var characterSetting: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initImageSetting()
-        initCharacterSetting()
+//        initImageSetting()
+//        initCharacterSetting()
         
         //컬렉션뷰의 셀 크기, 셀 사이 간격 등 설정.
         let layout = UICollectionViewFlowLayout() //인스턴스 생성(초기화)
@@ -41,8 +43,10 @@ class SelectCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         
-        cell.circleImageView.image = imageSetting[indexPath.row]
-        cell.characterUILabel.text = characterSetting[indexPath.row]
+//        cell.circleImageView.image = imageSetting[indexPath.row]
+//        cell.characterUILabel.text = characterSetting[indexPath.row]
+        cell.circleImageView.image = UIImage(named: characterList.character[indexPath.item].characterImage)
+        cell.characterUILabel.text = characterList.character[indexPath.item].initnickname
         cell.characterUILabel.labelUIChanged()
         cell.characterUILabel.labelBorderChanged()
         return cell
@@ -51,41 +55,45 @@ class SelectCollectionViewController: UICollectionViewController {
     //팝업창 띄우기 (present방식으로)
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
-        
-        //1. 스토리보드 파일찾기
-        let sb = UIStoryboard(name: "Select", bundle: nil) //nil:기본 위치로 가져옴
-        //2. 스토리보드 내에 있는 팝업뷰 컨트롤러 가져오기
-        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-            //2] 값 전달
-        vc.nickName = "struct 이용?"
-        //3. 팝업 띄우기
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: false, completion: nil)
+        if (indexPath.item < 3) {
+            //1. 스토리보드 파일찾기
+            let sb = UIStoryboard(name: "Select", bundle: nil) //nil:기본 위치로 가져옴
+            //2. 스토리보드 내에 있는 팝업뷰 컨트롤러 가져오기
+            let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+                //2] 값 전달
+            vc.characterData = characterList.character[indexPath.row]
+            //3. 팝업 띄우기
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true, completion: nil)
+        } else {
+            noaccessAlert()
+        }
+            
     }
     
-    //컬렉션뷰 이미지 가져오기(초기 세팅)
-    func initImageSetting() {
-        for j in 1...3 {
-            print("\(j)-6")
-            let image123 = UIImage(named: "\(j)-6")!
-            imageSetting.append(image123)
-        }
-        for i in 3...27 {
-            let noimage = UIImage(named: "noImage")!
-            imageSetting.append(noimage)
-        }
-    }
-    
-    func initCharacterSetting() {
-        for k in 1...3 {
-            let label123 = ["따끔따끔 다마고치", "방실방실 다마고치", "반짝반짝 다마고치"]
-            let labelSetting = label123[k-1]
-            characterSetting.append(labelSetting)
-        }
-        for i in 3...27 {
-            let nocharacter = "준비중이에요"
-            characterSetting.append(nocharacter)
-        }
-    }
+//    //컬렉션뷰 이미지 가져오기(초기 세팅)
+//    func initImageSetting() {
+//        for j in 1...3 {
+//            print("\(j)-6")
+//            let image123 = UIImage(named: "\(j)-6")!
+//            imageSetting.append(image123)
+//        }
+//        for i in 3...27 {
+//            let noimage = UIImage(named: "noImage")!
+//            imageSetting.append(noimage)
+//        }
+//    }
+//
+//    func initCharacterSetting() {
+//        for k in 1...3 {
+//            let label123 = ["따끔따끔 다마고치", "방실방실 다마고치", "반짝반짝 다마고치"]
+//            let labelSetting = label123[k-1]
+//            characterSetting.append(labelSetting)
+//        }
+//        for i in 3...27 {
+//            let nocharacter = "준비중이에요"
+//            characterSetting.append(nocharacter)
+//        }
+//    }
 
 }

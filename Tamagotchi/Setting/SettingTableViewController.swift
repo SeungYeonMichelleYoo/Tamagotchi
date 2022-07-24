@@ -10,9 +10,6 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
-    //1]텍스트필드의 닉네임 전달을 위한 공간
-    var textFieldName: String = ""
-    
     @IBOutlet weak var changedNameUILabel: UITableViewCell!
     
     @IBOutlet weak var showNameUILabel: UILabel!
@@ -23,9 +20,13 @@ class SettingTableViewController: UITableViewController {
         setBackgroundColor()
         
         navigationItem.title = "설정"
+//        navigationItem.leftBarButtonItem?.title = "x"
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         showNameUILabel.font = UIFont.systemFont(ofSize: 13)
-        showNameUILabel.text = textFieldName
+        showNameUILabel.text = UserDefaults.standard.string(forKey: "name")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

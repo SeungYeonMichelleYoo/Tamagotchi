@@ -8,29 +8,41 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
-    //1]텍스트필드의 닉네임 전달을 위한 공간
-    var textFieldName: String = ""
+   
+    //1>> 닉네임, 캐릭터 정보 값 전달을 위한 공간 만듬
+    var characterData: Character?
     
     @IBOutlet weak var wordsUILabel: UILabel!
+    
+    @IBOutlet weak var characterImage: UIImageView!
     
     @IBOutlet weak var nameUILabel: UILabel!
     
     @IBOutlet weak var levelInfoUILabel: UILabel!
     
+    @IBOutlet weak var riceTextField: UITextField!
+    
+    @IBOutlet weak var waterTextField: UITextField!
+    
     @IBOutlet weak var riceBtnUI: UIButton!
     
     @IBOutlet weak var waterBtnUI: UIButton!
-    
+
     //레벨, 밥알, 물방울 숫자 초기화
     var levelInitArray = [1, 0, 0]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroundColor()
         wordsUILabel.labelUIChanged() //말풍선 UI
+        
         nameUILabel.labelUIChanged() //닉네임 UI
+        //3>> 전달된 값 표시
+//        print(characterData)
+        nameUILabel.text = characterData?.initnickname
+        characterImage.image = UIImage(named: characterData!.characterImage)
+        
         nameUILabel.labelBorderChanged() //닉네임 테두리 UI
         riceBtnUI.buttonUIChanged() //밥먹기 버튼 UI
         waterBtnUI.buttonUIChanged() //물먹기 버튼 UI
@@ -47,8 +59,6 @@ class MainViewController: UIViewController {
         waterBtnUI.setTitle("물먹기", for: .normal)
         waterBtnUI.setImage(UIImage(systemName: "leaf.circle"), for:.normal)
         
-        //3] 변경된 닉네임 값 전달 받아옴
-        navigationItem.title = "\(textFieldName)님의 다마고치"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle.fill"), style: .plain, target: self, action: #selector(settingBtnClicked))
         
         //레벨, 밥알개수, 물방울개수 유지
@@ -65,6 +75,9 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         wordsUILabel.text = newWordsSetting()
+        let savednickname = UserDefaults.standard.string(forKey: "name")!
+        //3] 변경된 닉네임 값 전달 받아옴
+        navigationItem.title = "\(savednickname)님의 다마고치"
     }
     
     //말풍선 이야기
@@ -75,27 +88,27 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func riceBtnClicked(_ sender: UIButton) {
-        levelInitArray[1] += 1
-        
+        let riceTxt = riceTextField.text!
+        let riceCount = Int(riceTxt) ?? 1
+        if (riceCount > 0 && riceCount < 100) {
+            levelInitArray[1] += riceCount
+        }
         levelInitArray[0] = ((levelInitArray[1]/5) + (levelInitArray[2]/2))/10
-        
         levelInfoUILabel.text = "LV\(levelInitArray[0])ㆍ 밥알\(levelInitArray[1])개 ㆍ 물방울\(levelInitArray[2])개"
+        
+        wordsUILabel.text = newWordsSetting()
     }
     
     @IBAction func waterBtnClicked(_ sender: UIButton) {
-        levelInitArray[2] += 1
-        
+        let waterTxt = waterTextField.text!
+        let waterCount = Int(waterTxt) ?? 1
+        if (waterCount > 0 && waterCount < 50) {
+            levelInitArray[2] += waterCount
+        }
         levelInitArray[0] = ((levelInitArray[1]/5) + (levelInitArray[2]/2))/10
-        
         levelInfoUILabel.text = "LV\(levelInitArray[0])ㆍ 밥알\(levelInitArray[1])개 ㆍ 물방울\(levelInitArray[2])개"
-    }
-    
-    @IBAction func riceTextField(_ sender: UITextField) {
         
-    }
-
-    @IBAction func waterTextField(_ sender: UITextField) {
-        
+        wordsUILabel.text = newWordsSetting()
     }
     
 }
