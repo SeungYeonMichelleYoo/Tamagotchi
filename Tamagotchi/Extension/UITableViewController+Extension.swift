@@ -10,14 +10,17 @@ import UIKit
 extension UITableViewController {
  
     //얼럿 메시지
-    func showAlert(alertTitle: String, alertMessage: String) {
+    func showAlert() {
         let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실건가용?", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "응", style: .default)
+        let ok = UIAlertAction(title: "응", style: .default) { (_) in
+            // ok버튼 클릭했을 때 처리할 내용 (데이터 초기화 - scenedelegate 이용)
+
+        }
         let cancel = UIAlertAction(title: "아니", style: .cancel)
+            
         alert.addAction(cancel)
         alert.addAction(ok)
-        present(alert, animated: false) {
-            //데이터 초기화
-        }
+            
+        present(alert, animated: false)
     }
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543B2A82288D026F00B21A8A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543B2A81288D026F00B21A8A /* UILabel+Extension.swift */; };
+		543B2A84288D027900B21A8A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543B2A83288D027900B21A8A /* UIButton+Extension.swift */; };
+		543B2A88288D28E800B21A8A /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543B2A87288D28E800B21A8A /* CharacterInfo.swift */; };
+		543B2A8A288D2A5300B21A8A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543B2A89288D2A5300B21A8A /* Character.swift */; };
 		544DC0B0288C074500D08379 /* UITableViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DC0AF288C074500D08379 /* UITableViewController+Extension.swift */; };
 		544DC0B2288C114200D08379 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DC0B1288C114200D08379 /* UIColor+Extension.swift */; };
 		544DC0B4288C196E00D08379 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DC0B3288C196E00D08379 /* UIViewController+Extension.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		543B2A81288D026F00B21A8A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		543B2A83288D027900B21A8A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		543B2A87288D28E800B21A8A /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
+		543B2A89288D2A5300B21A8A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		544DC0AF288C074500D08379 /* UITableViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+Extension.swift"; sourceTree = "<group>"; };
 		544DC0B1288C114200D08379 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		544DC0B3288C196E00D08379 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -65,7 +73,9 @@
 				544DC0AF288C074500D08379 /* UITableViewController+Extension.swift */,
 				544DC0B1288C114200D08379 /* UIColor+Extension.swift */,
 				544DC0B3288C196E00D08379 /* UIViewController+Extension.swift */,
+				543B2A81288D026F00B21A8A /* UILabel+Extension.swift */,
 				544DC0B5288C19DD00D08379 /* UICollectionViewController+Extension.swift */,
+				543B2A83288D027900B21A8A /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			children = (
 				54C1F603288A77F7001DA380 /* Main.storyboard */,
 				54C1F613288A8FB3001DA380 /* MainViewController.swift */,
+				543B2A87288D28E800B21A8A /* CharacterInfo.swift */,
+				543B2A89288D2A5300B21A8A /* Character.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -212,11 +224,15 @@
 				54C1F5FE288A77F7001DA380 /* AppDelegate.swift in Sources */,
 				54C1F612288A84D4001DA380 /* SelectCollectionViewController.swift in Sources */,
 				54C1F600288A77F7001DA380 /* SceneDelegate.swift in Sources */,
+				543B2A8A288D2A5300B21A8A /* Character.swift in Sources */,
 				54C1F614288A8FB3001DA380 /* MainViewController.swift in Sources */,
 				544DC0B0288C074500D08379 /* UITableViewController+Extension.swift in Sources */,
 				54C1F627288AB5D7001DA380 /* DetailViewController.swift in Sources */,
 				544DC0B6288C19DD00D08379 /* UICollectionViewController+Extension.swift in Sources */,
+				543B2A82288D026F00B21A8A /* UILabel+Extension.swift in Sources */,
+				543B2A88288D28E800B21A8A /* CharacterInfo.swift in Sources */,
 				544DC0B2288C114200D08379 /* UIColor+Extension.swift in Sources */,
+				543B2A84288D027900B21A8A /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

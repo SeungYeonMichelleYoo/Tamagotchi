@@ -9,10 +9,19 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    //1] 닉네임 값 전달을 위한 공간 만듬
+    var nickName: String = ""
+    
     @IBOutlet var detailUIView: UIView!
+    @IBOutlet weak var detailUIImage: UIImageView!
+    @IBOutlet weak var detailCharacterUILabel: UILabel!
+    @IBOutlet weak var detailInfoLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //3] 값 전달
+        detailCharacterUILabel.text = nickName
         
         //밑 배경 투명 처리
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)

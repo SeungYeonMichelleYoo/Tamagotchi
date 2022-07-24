@@ -29,29 +29,35 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방실방실 다마고치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETG-0i-JOl">
-                                <rect key="frame" x="153" y="480" width="108" height="18"/>
+                                <rect key="frame" x="153" y="484" width="108" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LV1 ㆍ밥알 0개 ㆍ 물방울 0개" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-bM-yYq">
-                                <rect key="frame" x="90" y="514" width="234" height="18"/>
+                                <rect key="frame" x="90" y="518" width="234" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="밥주세용" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z0T-Gx-DYO">
-                                <rect key="frame" x="80" y="582" width="170" height="34"/>
+                                <rect key="frame" x="80" y="586" width="170" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="Hf6-Cq-QSB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="riceTextField:" destination="yoI-47-cjf" eventType="editingDidEndOnExit" id="K2f-VA-WKb"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="물주세용" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttu-TW-fdq">
-                                <rect key="frame" x="80" y="632" width="170" height="34"/>
+                                <rect key="frame" x="80" y="636" width="170" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="waterTextField:" destination="yoI-47-cjf" eventType="editingDidEndOnExit" id="ewW-Bz-dt5"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85o-ym-Lha">
                                 <rect key="frame" x="93" y="96" width="228" height="110"/>
@@ -63,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jga-Wh-Vxc">
-                                <rect key="frame" x="273" y="582" width="61" height="34"/>
+                                <rect key="frame" x="273" y="586" width="61" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="밥먹기"/>
                                 <connections>
@@ -71,7 +77,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCJ-Cf-yxY">
-                                <rect key="frame" x="273" y="632" width="61" height="34"/>
+                                <rect key="frame" x="273" y="636" width="61" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="물먹기"/>
                                 <connections>
@@ -93,7 +99,7 @@
                             <constraint firstItem="l10-0z-SX2" firstAttribute="top" secondItem="Evz-PU-S9j" secondAttribute="top" constant="30" id="JVc-IK-V77"/>
                             <constraint firstItem="4kd-Rf-i9H" firstAttribute="top" secondItem="l10-0z-SX2" secondAttribute="bottom" constant="8" id="LAU-ot-G6o"/>
                             <constraint firstItem="ttu-TW-fdq" firstAttribute="leading" secondItem="Z0T-Gx-DYO" secondAttribute="leading" id="Lr1-Ot-cto"/>
-                            <constraint firstItem="ETG-0i-JOl" firstAttribute="top" secondItem="4kd-Rf-i9H" secondAttribute="bottom" constant="4" id="MCB-0V-MzY"/>
+                            <constraint firstItem="ETG-0i-JOl" firstAttribute="top" secondItem="4kd-Rf-i9H" secondAttribute="bottom" constant="8" id="MCB-0V-MzY"/>
                             <constraint firstItem="Z0T-Gx-DYO" firstAttribute="top" secondItem="iiS-bM-yYq" secondAttribute="bottom" constant="50" id="QiK-MU-EiG"/>
                             <constraint firstItem="4kd-Rf-i9H" firstAttribute="leading" secondItem="Evz-PU-S9j" secondAttribute="leading" constant="100" id="S5b-rO-jxu"/>
                             <constraint firstItem="Evz-PU-S9j" firstAttribute="trailing" secondItem="4kd-Rf-i9H" secondAttribute="trailing" constant="100" id="TBT-9X-mAs"/>
@@ -115,12 +121,15 @@
                     </view>
                     <connections>
                         <outlet property="levelInfoUILabel" destination="iiS-bM-yYq" id="Xkx-CX-sR8"/>
+                        <outlet property="nameUILabel" destination="ETG-0i-JOl" id="Hzw-eR-l4K"/>
+                        <outlet property="riceBtnUI" destination="jga-Wh-Vxc" id="u4a-oT-eKU"/>
+                        <outlet property="waterBtnUI" destination="QCJ-Cf-yxY" id="nT0-IS-nLT"/>
                         <outlet property="wordsUILabel" destination="85o-ym-Lha" id="lE4-IC-OLB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbe-47-6Fo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.971014492754" y="16.741071428571427"/>
+            <point key="canvasLocation" x="2664" y="16"/>
         </scene>
     </scenes>
     <resources>

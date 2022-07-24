@@ -54,8 +54,8 @@
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="111" height="128"/>
                                 <connections>
+                                    <outlet property="characterUILabel" destination="9Bh-LC-3gX" id="Wx8-jj-ckw"/>
                                     <outlet property="circleImageView" destination="xW4-kO-Yma" id="l3Q-KF-D6d"/>
-                                    <outlet property="nameLabel" destination="9Bh-LC-3gX" id="Wx8-jj-ckw"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -86,12 +86,6 @@
                                             <constraint firstAttribute="width" secondItem="ybe-JV-jwF" secondAttribute="height" multiplier="1:1" id="lQo-mu-LJM"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="방실방실 다마고치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btv-nX-tg4">
-                                        <rect key="frame" x="90" y="166" width="134" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tg-YN-O1X">
                                         <rect key="frame" x="60" y="195" width="194" height="1"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,6 +119,12 @@ CoreSimulator 802.6.1 - Device: iP</string>
                                             <action selector="startBtnClicked:" destination="bpn-k1-eTL" eventType="touchUpInside" id="IqL-Jp-KxI"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="방실방실 다마고치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btv-nX-tg4">
+                                        <rect key="frame" x="90" y="166" width="134" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -167,6 +167,9 @@ CoreSimulator 802.6.1 - Device: iP</string>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="detailCharacterUILabel" destination="Btv-nX-tg4" id="GFr-Nn-ZKw"/>
+                        <outlet property="detailInfoLabel" destination="qc9-eX-3Ja" id="t32-FG-Qbu"/>
+                        <outlet property="detailUIImage" destination="ybe-JV-jwF" id="fQx-E5-Cbh"/>
                         <outlet property="detailUIView" destination="7Zj-lc-pmS" id="rCP-KA-i4V"/>
                     </connections>
                 </viewController>

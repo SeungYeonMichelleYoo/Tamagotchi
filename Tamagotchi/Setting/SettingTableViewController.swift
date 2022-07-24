@@ -10,13 +10,39 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+    //1]텍스트필드의 닉네임 전달을 위한 공간
+    var textFieldName: String = ""
+    
+    @IBOutlet weak var changedNameUILabel: UITableViewCell!
+    
+    @IBOutlet weak var showNameUILabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackgroundColor()
-
-    
+        
+        navigationItem.title = "설정"
+        
+        showNameUILabel.font = UIFont.systemFont(ofSize: 13)
+        showNameUILabel.text = textFieldName
     }
-
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row == 0){
+            //이름 설정 화면 push
+            let sb = UIStoryboard(name: "Setting", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "NameChangeViewController")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        if(indexPath.row == 1) {
+            //다마고치 변경하기 화면 push
+            let sb = UIStoryboard(name: "Select", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "SelectCollectionViewController")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        if(indexPath.row == 2) {
+            showAlert()
+        }
+    }
 }

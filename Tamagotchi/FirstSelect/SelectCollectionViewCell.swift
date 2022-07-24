@@ -11,7 +11,5 @@ class SelectCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var circleImageView: UIImageView!
     
-    @IBOutlet weak var nameLabel: UILabel!
-    
-
+    @IBOutlet weak var characterUILabel: UILabel!
 }
