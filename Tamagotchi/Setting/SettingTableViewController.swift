@@ -20,13 +20,17 @@ class SettingTableViewController: UITableViewController {
         setBackgroundColor()
         
         navigationItem.title = "설정"
-//        navigationItem.leftBarButtonItem?.title = "x"
+        navigationController?.navigationBar.topItem?.title = ""
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         showNameUILabel.font = UIFont.systemFont(ofSize: 13)
         showNameUILabel.text = UserDefaults.standard.string(forKey: "name")
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .mainbackgroundColor
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -41,6 +45,8 @@ class SettingTableViewController: UITableViewController {
             let sb = UIStoryboard(name: "Select", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "SelectCollectionViewController")
             self.navigationController?.pushViewController(vc, animated: true)
+            
+            vc.navigationItem.title = "다마고치 변경하기"
         }
         if(indexPath.row == 2) {
             showAlert()

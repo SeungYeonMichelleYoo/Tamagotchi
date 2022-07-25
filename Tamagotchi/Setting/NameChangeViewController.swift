@@ -13,7 +13,6 @@ class NameChangeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setBackgroundColor()
         
         let savedname = UserDefaults.standard.string(forKey: "name")!
@@ -22,21 +21,28 @@ class NameChangeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveBtnClicked))
     }
     @objc func saveBtnClicked() {
-        self.navigationController?.popViewController(animated: true)
-        
-        //레벨, 밥알개수, 물방울개수 유지 + 다마고치 종류 추가해야 됨 !
-        let level = UserDefaults.standard.integer(forKey: "level")
-        let rice = UserDefaults.standard.integer(forKey: "rice")
-        let water = UserDefaults.standard.integer(forKey: "water")
-        
-        let nickname = nameTextField.text
-        UserDefaults.standard.set(nickname, forKey:"name")
+        if (nameTextField.text!.count >= 2 && nameTextField.text!.count <= 6) {
+            self.navigationController?.popViewController(animated: true)
+            
+            //레벨, 밥알개수, 물방울개수 유지 + 다마고치 종류 추가해야 됨 !
+            let level = UserDefaults.standard.integer(forKey: "level")
+            let rice = UserDefaults.standard.integer(forKey: "rice")
+            let water = UserDefaults.standard.integer(forKey: "water")
+            
+            let nickname = nameTextField.text
+            UserDefaults.standard.set(nickname, forKey:"name")
+        } else {
+            toomuchwordsAlert()
+        }
     }
     
-    @IBAction func nameTxtFieldChanged(_ sender: UITextField) {
-        let textFieldName = nameTextField.text
+    @IBAction func TextFieldChanged(_ sender: UITextField) {
+//        if let value = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), (2...6).contains(value.count) {
+//             return
+//        } else {
+//            toomuchwordsAlert()
+//        }
     }
-    
-    
-    
+
+
 }

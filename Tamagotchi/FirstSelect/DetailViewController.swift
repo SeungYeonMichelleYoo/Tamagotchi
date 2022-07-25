@@ -17,6 +17,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailUIImage: UIImageView!
     @IBOutlet weak var detailCharacterUILabel: UILabel!
     @IBOutlet weak var detailInfoLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    
+    //1) 값전달 공간(시작하기->변경하기)
+    var btnTitle: String? = "시작하기"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +37,14 @@ class DetailViewController: UIViewController {
         //detailUIView 모서리 둥글게 만들기
         detailUIView.layer.cornerRadius = 25
         detailUIView.clipsToBounds = true
-        }   
+        
+        //3) 전달받은 값 보여주기(시작하기->변경하기)
+        startButton.setTitle(btnTitle, for: .normal)
+        }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        startButton.setTitle(btnTitle, for: .normal)
+//    }
 
     @IBAction func tapGestureClicked(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: false)

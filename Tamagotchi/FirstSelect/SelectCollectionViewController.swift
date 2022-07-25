@@ -61,7 +61,15 @@ class SelectCollectionViewController: UICollectionViewController {
             //2. 스토리보드 내에 있는 팝업뷰 컨트롤러 가져오기
             let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
                 //2] 값 전달
-            vc.characterData = characterList.character[indexPath.row]
+            vc.characterData = characterList.character[indexPath.item]
+            
+            UserDefaults.standard.set(indexPath.item, forKey: "index")
+            
+           //2) 값 전달(시작하기->변경하기)
+            if navigationItem.title == "다마고치 변경하기" {
+                print("should be changed")
+                vc.btnTitle = "변경하기"
+            }
             //3. 팝업 띄우기
             vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true, completion: nil)

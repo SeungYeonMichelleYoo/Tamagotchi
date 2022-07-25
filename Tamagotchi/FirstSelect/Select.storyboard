@@ -171,6 +171,7 @@ CoreSimulator 802.6.1 - Device: iP</string>
                         <outlet property="detailInfoLabel" destination="qc9-eX-3Ja" id="t32-FG-Qbu"/>
                         <outlet property="detailUIImage" destination="ybe-JV-jwF" id="fQx-E5-Cbh"/>
                         <outlet property="detailUIView" destination="7Zj-lc-pmS" id="rCP-KA-i4V"/>
+                        <outlet property="startButton" destination="N0g-sk-VSZ" id="V0P-lF-oiw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1i-QK-s3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
