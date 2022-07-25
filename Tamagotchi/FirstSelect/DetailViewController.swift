@@ -45,9 +45,13 @@ class DetailViewController: UIViewController {
 //    override func viewWillAppear(_ animated: Bool) {
 //        startButton.setTitle(btnTitle, for: .normal)
 //    }
-
-    @IBAction func tapGestureClicked(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: false)
+    
+    //popup뷰 이외에 클릭시 내려감 (탭제스쳐 효과)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if touch?.view != detailUIView {
+            self.dismiss(animated: true)
+        }
     }
     
     @IBAction func cancelBtnClicked(_ sender: UIButton) {

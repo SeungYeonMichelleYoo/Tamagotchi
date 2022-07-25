@@ -24,7 +24,7 @@ class SettingTableViewController: UITableViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         showNameUILabel.font = UIFont.systemFont(ofSize: 13)
         showNameUILabel.text = UserDefaults.standard.string(forKey: "name")
     }

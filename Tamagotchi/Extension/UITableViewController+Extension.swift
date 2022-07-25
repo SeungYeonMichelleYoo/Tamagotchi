@@ -18,6 +18,11 @@ extension UITableViewController {
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
             
+            UserDefaults.standard.removeObject(forKey: "rice")
+            UserDefaults.standard.removeObject(forKey: "water")
+            UserDefaults.standard.removeObject(forKey: "name")
+            UserDefaults.standard.removeObject(forKey: "level")
+            
             //돌려주고 싶은 화면
             let sb = UIStoryboard(name: "Select", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "SelectCollectionViewController") as! SelectCollectionViewController

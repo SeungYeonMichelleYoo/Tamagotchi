@@ -15,6 +15,7 @@
 		544DC0B2288C114200D08379 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DC0B1288C114200D08379 /* UIColor+Extension.swift */; };
 		544DC0B4288C196E00D08379 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DC0B3288C196E00D08379 /* UIViewController+Extension.swift */; };
 		544DC0B6288C19DD00D08379 /* UICollectionViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544DC0B5288C19DD00D08379 /* UICollectionViewController+Extension.swift */; };
+		54A66E6A288ED90500AD8205 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 54A66E69288ED90500AD8205 /* IQKeyboardManagerSwift */; };
 		54C1F5FE288A77F7001DA380 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1F5FD288A77F7001DA380 /* AppDelegate.swift */; };
 		54C1F600288A77F7001DA380 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1F5FF288A77F7001DA380 /* SceneDelegate.swift */; };
 		54C1F605288A77F7001DA380 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54C1F603288A77F7001DA380 /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54A66E6A288ED90500AD8205 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +162,9 @@
 			dependencies = (
 			);
 			name = Tamagotchi;
+			packageProductDependencies = (
+				54A66E69288ED90500AD8205 /* IQKeyboardManagerSwift */,
+			);
 			productName = Tamagotchi;
 			productReference = 54C1F5FA288A77F7001DA380 /* Tamagotchi.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +193,9 @@
 				Base,
 			);
 			mainGroup = 54C1F5F1288A77F7001DA380;
+			packageReferences = (
+				54A66E68288ED90500AD8205 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 54C1F5FB288A77F7001DA380 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -454,6 +462,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		54A66E68288ED90500AD8205 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		54A66E69288ED90500AD8205 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54A66E68288ED90500AD8205 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 54C1F5F2288A77F7001DA380 /* Project object */;
 }

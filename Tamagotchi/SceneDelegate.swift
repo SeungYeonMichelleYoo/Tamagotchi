@@ -13,10 +13,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let rice = UserDefaults.standard.integer(forKey: "rice")
-        let level = UserDefaults.standard.integer(forKey: "level")
-        let water = UserDefaults.standard.integer(forKey: "water")
-        
+        let rice = UserDefaults.standard.integer(forKey: "rice") ?? 0
+        let level = UserDefaults.standard.integer(forKey: "level") ?? 1
+        let water = UserDefaults.standard.integer(forKey: "water") ?? 0
+        print(rice)
+        print(water)
+        print(UserDefaults.standard.string(forKey: "name"))
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
@@ -32,8 +34,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
             
             window?.rootViewController = UINavigationController(rootViewController: vc)
-            
-            
             
         }
         window?.makeKeyAndVisible()

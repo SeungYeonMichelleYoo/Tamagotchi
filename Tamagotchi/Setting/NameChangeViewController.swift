@@ -7,15 +7,18 @@
 
 import UIKit
 
-class NameChangeViewController: UIViewController {
+class NameChangeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameTextField.delegate = self
+        
         setBackgroundColor()
         
-        let savedname = UserDefaults.standard.string(forKey: "name")!
+        let savedname = UserDefaults.standard.string(forKey: "name") ?? ""
         
         navigationItem.title = "\(savedname)님 이름 변경하기"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveBtnClicked))
@@ -31,9 +34,19 @@ class NameChangeViewController: UIViewController {
             
             let nickname = nameTextField.text
             UserDefaults.standard.set(nickname, forKey:"name")
+            //print(UserDefaults.standard.string(forKey: "name"))
         } else {
             toomuchwordsAlert()
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = nameTextField.text else { return false }
+        
+        if text.count > 5 {
+            return false
+        }
+        return true
     }
     
     @IBAction func TextFieldChanged(_ sender: UITextField) {

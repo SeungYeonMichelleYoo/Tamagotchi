@@ -44,6 +44,7 @@ class MainViewController: UIViewController {
         nameUILabel.labelUIChanged() //닉네임 UI
         //3>> 전달된 값 표시
 //        print(characterData)
+        //selectCollectionView를 안거치고 온 경우 = 기존사용자
         if (characterData == nil) {
             characterData = characters[UserDefaults.standard.integer(forKey: "index") ?? 0]
             levelInitArray[0] = UserDefaults.standard.integer(forKey: "level")
@@ -82,7 +83,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         wordsUILabel.text = newWordsSetting()
-        let savednickname = UserDefaults.standard.string(forKey: "name")!
+        let savednickname = UserDefaults.standard.string(forKey: "name") ?? ""
         //3] 변경된 닉네임 값 전달 받아옴
         navigationItem.title = "\(savednickname)님의 다마고치"
        
