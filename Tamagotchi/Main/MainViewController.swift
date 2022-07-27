@@ -37,20 +37,30 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mainColor] //navigationController.navigationBar는 모든 뷰에 적용이 된다.
         self.navigationController?.navigationBar.tintColor = .mainColor
         
+        let navigationBar = navigationController?.navigationBar
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.shadowColor = .gray
+        navigationBar?.scrollEdgeAppearance = navigationBarAppearance
+        navigationBar?.standardAppearance = navigationBarAppearance
+        
         //MARK: - UI적 요소
         setBackgroundColor()
         wordsUILabel.labelUIChanged() //말풍선 UI
         
         nameUILabel.labelUIChanged() //닉네임 UI
         //3>> 전달된 값 표시
-//        print(characterData)
+        print(characterData)
         //selectCollectionView를 안거치고 온 경우 = 기존사용자
-        if (characterData == nil) {
+        //if (characterData == nil) {
             characterData = characters[UserDefaults.standard.integer(forKey: "index") ?? 0]
             levelInitArray[0] = UserDefaults.standard.integer(forKey: "level")
             levelInitArray[1] = UserDefaults.standard.integer(forKey: "rice")
             levelInitArray[2] = UserDefaults.standard.integer(forKey: "water")
+        
+        if levelInitArray[0] == 0 {
+            levelInitArray[0] = 1
         }
+        //}
 
         nameUILabel.text = characterData?.initnickname
         characterImage.image = UIImage(named: characterData!.characterImage)
@@ -102,6 +112,8 @@ class MainViewController: UIViewController {
         let riceCount = Int(riceTxt) ?? 1
         if (riceCount > 0 && riceCount < 100) {
             levelInitArray[1] += riceCount
+        } else {
+            showAlertatRiceBtn()
         }
         
         levelCount()
@@ -120,6 +132,8 @@ class MainViewController: UIViewController {
         let waterCount = Int(waterTxt) ?? 1
         if (waterCount > 0 && waterCount < 50) {
             levelInitArray[2] += waterCount
+        } else {
+            showAlertatWaterBtn()
         }
         
         levelCount()

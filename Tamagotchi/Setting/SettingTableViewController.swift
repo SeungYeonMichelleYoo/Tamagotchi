@@ -19,13 +19,19 @@ class SettingTableViewController: UITableViewController {
         
         setBackgroundColor()
         
+        showNameUILabel.font = UIFont.systemFont(ofSize: 13)
+        
         navigationItem.title = "설정"
         navigationController?.navigationBar.topItem?.title = ""
         
+        let navigationBar = navigationController?.navigationBar
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.shadowColor = .gray
+        navigationBar?.scrollEdgeAppearance = navigationBarAppearance
+        navigationBar?.standardAppearance = navigationBarAppearance
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        showNameUILabel.font = UIFont.systemFont(ofSize: 13)
+    override func viewWillAppear(_ animated: Bool) {
         showNameUILabel.text = UserDefaults.standard.string(forKey: "name")
     }
     

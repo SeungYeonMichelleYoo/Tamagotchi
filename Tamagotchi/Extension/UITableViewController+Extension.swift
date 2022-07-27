@@ -18,10 +18,10 @@ extension UITableViewController {
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate = windowScene?.delegate as? SceneDelegate
             
-            UserDefaults.standard.removeObject(forKey: "rice")
-            UserDefaults.standard.removeObject(forKey: "water")
-            UserDefaults.standard.removeObject(forKey: "name")
-            UserDefaults.standard.removeObject(forKey: "level")
+            //UserDefaults 데이터 초기화
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
             
             //돌려주고 싶은 화면
             let sb = UIStoryboard(name: "Select", bundle: nil)

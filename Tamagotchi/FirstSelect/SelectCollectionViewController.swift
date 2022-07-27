@@ -61,9 +61,10 @@ class SelectCollectionViewController: UICollectionViewController {
             //2. 스토리보드 내에 있는 팝업뷰 컨트롤러 가져오기
             let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
                 //2] 값 전달
-            vc.characterData = characterList.character[indexPath.item]
+//            vc.characterData = characterList.character[indexPath.item]
+            //2) character 클릭된 위치 값 전달 (디테일뷰에서 변경하기/시작하기 클릭 시에 선택된 캐릭터 위치 값을 저장하기 위함)
+            vc.characterIndex = indexPath.item
             
-            UserDefaults.standard.set(indexPath.item, forKey: "index")
             
            //2) 값 전달(시작하기->변경하기)
             if navigationItem.title == "다마고치 변경하기" {

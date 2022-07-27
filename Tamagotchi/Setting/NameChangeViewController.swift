@@ -25,16 +25,13 @@ class NameChangeViewController: UIViewController, UITextFieldDelegate {
     }
     @objc func saveBtnClicked() {
         if (nameTextField.text!.count >= 2 && nameTextField.text!.count <= 6) {
-            self.navigationController?.popViewController(animated: true)
             
-            //레벨, 밥알개수, 물방울개수 유지 + 다마고치 종류 추가해야 됨 !
-            let level = UserDefaults.standard.integer(forKey: "level")
-            let rice = UserDefaults.standard.integer(forKey: "rice")
-            let water = UserDefaults.standard.integer(forKey: "water")
-            
+            //닉네임 저장
             let nickname = nameTextField.text
             UserDefaults.standard.set(nickname, forKey:"name")
             //print(UserDefaults.standard.string(forKey: "name"))
+            
+            self.navigationController?.popViewController(animated: true)
         } else {
             toomuchwordsAlert()
         }

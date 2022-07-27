@@ -22,17 +22,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
+        //처음 사용자
         if (rice == 0 && water == 0) {
             //처음 띄우는 화면
-    
+            //select화면 띄우기
             let sb = UIStoryboard(name: "Select", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "SelectCollectionViewController") as! SelectCollectionViewController
             window?.rootViewController = vc
+        
+            //기존 사용자
         } else {
             //MainView 띄우기
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            
             window?.rootViewController = UINavigationController(rootViewController: vc)
             
         }
