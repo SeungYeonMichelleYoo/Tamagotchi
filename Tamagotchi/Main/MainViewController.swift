@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var waterBtnUI: UIButton!
 
     //레벨, 밥알, 물방울 숫자 초기화
-    var levelInitArray = [1, 0, 0]
+    var levelInitArray: (level: Int, rice: Int, water: Int) = (1, 0, 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +53,12 @@ class MainViewController: UIViewController {
         //selectCollectionView를 안거치고 온 경우 = 기존사용자
         //if (characterData == nil) {
             characterData = characters[UserDefaults.standard.integer(forKey: "index") ?? 0]
-            levelInitArray[0] = UserDefaults.standard.integer(forKey: "level")
-            levelInitArray[1] = UserDefaults.standard.integer(forKey: "rice")
-            levelInitArray[2] = UserDefaults.standard.integer(forKey: "water")
+            levelInitArray.0 = UserDefaults.standard.integer(forKey: "level")
+            levelInitArray.1 = UserDefaults.standard.integer(forKey: "rice")
+            levelInitArray.2 = UserDefaults.standard.integer(forKey: "water")
         
-        if levelInitArray[0] == 0 {
-            levelInitArray[0] = 1
+        if levelInitArray.0 == 0 {
+            levelInitArray.0 = 1
         }
         //}
 
@@ -72,16 +72,15 @@ class MainViewController: UIViewController {
         //말풍선 폰트 커스텀
         levelInfoUILabel.font = UIFont.boldSystemFont(ofSize: 13)
         levelInfoUILabel.textColor = UIColor.mainColor
-        levelInfoUILabel.text = "LV\(levelInitArray[0])ㆍ 밥알\(levelInitArray[1])개 ㆍ 물방울\(levelInitArray[2])개"
+        levelInfoUILabel.text = "LV\(levelInitArray.0)ㆍ 밥알\(levelInitArray.1)개 ㆍ 물방울\(levelInitArray.2)개"
         
+        //MARK: - UIButton+Extension btnUI 함수 이용
         //밥먹기 버튼 UI 커스텀
-        riceBtnUI.setTitle("밥먹기", for: .normal)
-        riceBtnUI.setImage(UIImage(systemName: "drop.circle"), for:.normal)
+        riceBtnUI.btnUI(title: "밥먹기", image: "drop.circle")
         
         //물먹기 버튼 UI 커스텀
-        waterBtnUI.setTitle("물먹기", for: .normal)
-        waterBtnUI.setImage(UIImage(systemName: "leaf.circle"), for:.normal)
-        
+        waterBtnUI.btnUI(title: "물먹기", image: "leaf.circle")
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle.fill"), style: .plain, target: self, action: #selector(settingBtnClicked))
     }
     
@@ -106,59 +105,57 @@ class MainViewController: UIViewController {
         return select
     }
     
+    let defaultValue = 1
+    
     //MARK: - 밥먹기 버튼 클릭시 실행
     @IBAction func riceBtnClicked(_ sender: UIButton) {
         let riceTxt = riceTextField.text!
-        let riceCount = Int(riceTxt) ?? 1
+        let riceCount = Int(riceTxt) ?? defaultValue
         if (riceCount > 0 && riceCount < 100) {
-            levelInitArray[1] += riceCount
+            levelInitArray.1 += riceCount
         } else {
             showAlertatRiceBtn()
         }
-        
-        levelCount()
-        levelInfoUILabel.text = "LV\(levelInitArray[0])ㆍ 밥알\(levelInitArray[1])개 ㆍ 물방울\(levelInitArray[2])개"
-        
-        wordsUILabel.text = newWordsSetting()
-        imagebyLevel()
-        
-        saveNumbers()
-        
-        }
+        buttonClicked()
+    }
         
     //MARK: - 물먹기 버튼 클릭시 실행
     @IBAction func waterBtnClicked(_ sender: UIButton) {
         let waterTxt = waterTextField.text!
-        let waterCount = Int(waterTxt) ?? 1
+        let waterCount = Int(waterTxt) ?? defaultValue
         if (waterCount > 0 && waterCount < 50) {
-            levelInitArray[2] += waterCount
+            levelInitArray.2 += waterCount
         } else {
             showAlertatWaterBtn()
         }
-        
+        buttonClicked()
+    }
+    
+    //MARK: - 밥먹기, 물먹기 버튼 관련 공통 함수
+    func buttonClicked() {
         levelCount()
-        levelInfoUILabel.text = "LV\(levelInitArray[0])ㆍ 밥알\(levelInitArray[1])개 ㆍ 물방울\(levelInitArray[2])개"
+        levelInfoUILabel.text = "LV\(levelInitArray.0)ㆍ 밥알\(levelInitArray.1)개 ㆍ 물방울\(levelInitArray.2)개"
     
         wordsUILabel.text = newWordsSetting()
         imagebyLevel()
         
         saveNumbers()
     }
-    
+        
     //MARK: - 레벨 계산(밥먹기, 물먹기에 따라 올라가는 레벨)
     
     func levelCount() {
-        levelInitArray[0] = ((levelInitArray[1]/5) + (levelInitArray[2]/2))/10
-        if (levelInitArray[0] == 0) {
-            levelInitArray[0] = 1
-        } else if (levelInitArray[0] > 10) {
-            levelInitArray[0] = 10
+        levelInitArray.0 = ((levelInitArray.1/5) + (levelInitArray.2/2))/10
+        if (levelInitArray.0 == 0) {
+            levelInitArray.0 = 1
+        } else if (levelInitArray.0 > 10) {
+            levelInitArray.0 = 10
         }
     }
     
     //MARK: - 레벨에 따라 변하는 이미지 세팅
     func imagebyLevel() {
-        var levelForImage = levelInitArray[0]
+        var levelForImage = levelInitArray.0
         if (levelForImage == 10) {
             levelForImage = 9
         }
@@ -172,10 +169,11 @@ class MainViewController: UIViewController {
     }
     
     func saveNumbers() {
-        //MARK: - UserDefaults
+    //MARK: - UserDefaults
         //레벨, 밥알개수, 물방울개수 유지
-        UserDefaults.standard.set(levelInitArray[0], forKey: "level")
-        UserDefaults.standard.set(levelInitArray[1], forKey: "rice")
-        UserDefaults.standard.set(levelInitArray[2], forKey: "water")
+        UserDefaults.standard.set(levelInitArray.0, forKey: "level")
+        UserDefaults.standard.set(levelInitArray.1, forKey: "rice")
+        UserDefaults.standard.set(levelInitArray.2, forKey: "water")
     }
+
 }

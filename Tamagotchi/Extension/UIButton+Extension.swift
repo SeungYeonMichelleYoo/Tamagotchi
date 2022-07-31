@@ -16,4 +16,10 @@ extension UIButton {
         self.layer.borderColor = UIColor.mainColor.cgColor
         self.backgroundColor = .mainbackgroundColor
     }
+    
+    //MARK: - 벼튼UI (글씨, 이미지)
+    func btnUI(title: String, image: String) {
+        self.setTitle(title, for:.normal)
+        self.setImage(UIImage(systemName: image), for:.normal)
+    }
 }

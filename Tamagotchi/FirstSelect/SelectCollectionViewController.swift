@@ -67,9 +67,10 @@ class SelectCollectionViewController: UICollectionViewController {
             
             
            //2) 값 전달(시작하기->변경하기)
-            if navigationItem.title == "다마고치 변경하기" {
+            let changeTama = "변경하기"
+            if navigationItem.title == "다마고치 \(changeTama)" {
                 print("should be changed")
-                vc.btnTitle = "변경하기"
+                vc.btnTitle = "\(changeTama)"
             }
             //3. 팝업 띄우기
             vc.modalPresentationStyle = .overFullScreen

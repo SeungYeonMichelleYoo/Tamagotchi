@@ -13,9 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let rice = UserDefaults.standard.integer(forKey: "rice") ?? 0
+        let rice = UserDefaults.standard.integer(forKey: "rice")
         let level = UserDefaults.standard.integer(forKey: "level") ?? 1
-        let water = UserDefaults.standard.integer(forKey: "water") ?? 0
+        let water = UserDefaults.standard.integer(forKey: "water")
         print(rice)
         print(water)
         print(UserDefaults.standard.string(forKey: "name"))
