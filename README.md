@@ -5,7 +5,7 @@
   
   
 ## 개발 기간 / 개발 환경  
-2022.07.22 - 2022.07.25
+2022.07.22 - 2022.07.25 (4일)
 
 <img width="95" src="https://img.shields.io/badge/Xcode-13.4.1-blue"> <img width="77" src="https://img.shields.io/badge/iOS-15.0+-silver">  
   
